@@ -1,4 +1,4 @@
-import { MediumCallback, MiddlewareCallback, SideCarMedium, SideCarMediumOptions, SideMedium, SidePush } from './types';
+import { MediumCallback, MiddlewareCallback, SideCarMedium, SideCarMediumOptions, SideMedium, SidePush } from './types.ts';
 
 function ItoI<T>(a: T) {
   return a;

@@ -1,6 +1,7 @@
+// @deno-types="npm:@types/react@^18.2.0"
 import * as React from 'react';
 
-import { SideCarComponent, SideCarMedium } from './types';
+import { SideCarComponent, SideCarMedium } from './types.ts';
 
 const SideCar = ({ sideCar, ...rest }: any) => {
   if (!sideCar) {

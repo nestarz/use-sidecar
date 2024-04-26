@@ -1,8 +1,8 @@
-export { sidecar } from './hoc';
-export { useSidecar } from './hook';
-export { setConfig } from './config';
-export { createMedium, createSidecarMedium } from './medium';
-export { renderCar } from './renderProp';
-export { exportSidecar } from './exports';
+export { sidecar } from './hoc.tsx';
+export { useSidecar } from './hook.ts';
+export { setConfig } from './config.ts';
+export { createMedium, createSidecarMedium } from './medium.ts';
+export { renderCar } from './renderProp.tsx';
+export { exportSidecar } from './exports.tsx';
 
-export type { SideCarComponent } from './types';
+export type { SideCarComponent } from './types.ts';

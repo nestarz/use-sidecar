@@ -1,7 +1,8 @@
+// @deno-types="npm:@types/react@^18.2.0"
 import * as React from 'react';
 
-import { useSidecar } from './hook';
-import { Importer, SideCarHOC } from './types';
+import { useSidecar } from './hook.ts';
+import { Importer, SideCarHOC } from './types.ts';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function sidecar<T>(

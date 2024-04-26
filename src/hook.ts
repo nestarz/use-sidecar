@@ -1,7 +1,10 @@
+// @deno-types="npm:@types/react@^18.2.0"
+import * as React from 'react';
+// @deno-types="npm:@types/react@^18.2.0"
 import { useState, useEffect } from 'react';
 
-import { env } from './env';
-import { Importer, SideMedium } from './types';
+import { env } from './env.ts';
+import { Importer, SideMedium } from './types.ts';
 
 const cache = new WeakMap();
 
@@ -13,7 +16,7 @@ export function useSidecar<T>(
 ): [React.ComponentType<T> | null, Error | null] {
   const options: any = (effect && effect.options) || NO_OPTIONS;
 
-  if (env.isNode && !options.ssr) {
+  if (env.isServer && !options.ssr) {
     return [null, null];
   }
 
@@ -27,7 +30,7 @@ function useRealSidecar<T>(
 ): [React.ComponentType<T> | null, Error | null] {
   const options: any = (effect && effect.options) || NO_OPTIONS;
 
-  const couldUseCache = env.forceCache || (env.isNode && !!options.ssr) || !options.async;
+  const couldUseCache = env.forceCache || (env.isServer && !!options.ssr) || !options.async;
 
   const [Car, setCar] = useState(couldUseCache ? () => cache.get(importer) : undefined);
   const [error, setError] = useState<Error | null>(null);

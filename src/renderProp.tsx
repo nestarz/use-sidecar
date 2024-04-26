@@ -1,7 +1,9 @@
+// @deno-types="npm:@types/react@^18.2.0"
 import * as React from 'react';
+// @deno-types="npm:@types/react@^18.2.0"
 import { useState, useCallback, useEffect, useLayoutEffect } from 'react';
 
-import { SideCarHOC } from './types';
+import { SideCarHOC } from './types.ts';
 
 type CombinedProps<T extends any[], K> = { children: (...prop: T) => any } & K;
 type RenderPropComponent<T extends any[], K> = React.ComponentType<CombinedProps<T, K>>;
@@ -17,7 +19,7 @@ type ChildrenProps<T extends any[]> = {
 export function renderCar<T extends any[], K, C = RenderPropComponent<T, K & Partial<SideCarHOC>>>(
   WrappedComponent: C,
   defaults: (props: K) => T
-) {
+): (props: CombinedProps<T, K>) => React.JSX.Element {
   function State({ stateRef, props }: { stateRef: React.RefObject<Callback>; props: CombinedProps<T, K> }) {
     const renderTarget = useCallback(function SideTarget(...args: T) {
       useLayoutEffect(() => {
